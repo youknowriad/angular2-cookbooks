@@ -9,7 +9,7 @@ and how to use it in an Angular2 component or in another service
 
 ## Angular version
 
-- 2.0.0-alpha.45
+- 2.0.0-alpha.46
 
 ## How To ?
 

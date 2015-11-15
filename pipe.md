@@ -8,7 +8,7 @@ Pipes in Angular2 are the equivalent of filters in Angular.JS (1). Let's create 
 
 ## Angular version
 
-- 2.0.0-alpha.45
+- 2.0.0-alpha.46
 
 ## How To ?
 
