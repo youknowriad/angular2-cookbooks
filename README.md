@@ -8,6 +8,7 @@ Each cookbook has a defined format : Prerequisites, last tested Angular2 version
 ## Bootstrap
 
  * [Bootstrap an Angular2 application](bootstrap.md)
+ * [How to use the angular2 router ?](routing.md)
 
 ## Services
 
