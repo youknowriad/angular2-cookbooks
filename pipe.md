@@ -14,7 +14,7 @@ Pipes in Angular2 are the equivalent of filters in Angular.JS (1). Let's create 
 
 A pipe in Angular2 is just a class with a transform method like so
 
-````javascript
+```javascript
 // truncate.ts
 import {Pipe} from 'angular2/angular2'
 
@@ -29,11 +29,11 @@ export class TruncatePipe {
     return value.length > limit ? value.substring(0, limit) + trail : value;
   }
 }
-````
+```
 
 Next let's use our pipe
 
-````javascript
+```javascript
 // app.ts
 import {Component, View} from 'angular2/angular2';
 import {TruncatePipe} from './truncate';
@@ -52,7 +52,7 @@ import {TruncatePipe} from './truncate';
 export class App {
   constructor() {}
 }
-````
+```
 
 ## Plunker
 

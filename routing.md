@@ -16,7 +16,7 @@ configure routes and create links between routes.
 First we have to include the angular2 router bundle to our application.
 The router component is not included by default in the angular2 bundle.
 
-````html
+```html
 <!-- index.html -->
 <!doctype html>
 <html>
@@ -42,22 +42,22 @@ The router component is not included by default in the angular2 bundle.
   <app></app>
 </body>
 </html>
-````
+```
 
 Now we add angular router provider to our global providers
 
-````javascript
+```javascript
 // bootstrap.ts compiled (using typescript) to bootstrap.js
 import {bootstrap} from 'angular2/angular2';
 import {App} from './app';
 import {ROUTER_PROVIDERS} from 'angular2/router';
 
 bootstrap(App, [ROUTER_PROVIDERS]);
-````
+```
 
 Next, let's define some routes in our root component `App`.
 
-````javascript
+```javascript
 // app.ts compiled (using typescript) to app.js
 import {Component, View} from 'angular2/angular2';
 import { RouteConfig, ROUTER_DIRECTIVES } from 'angular2/router';
@@ -83,7 +83,7 @@ import { About } from './about';
 export class App {
   constructor() {}
 }
-````
+```
 
 So we define routes using the `RouteConfig` decorator.
 We pass it an array of plain javascript objects, with a path,
@@ -95,7 +95,7 @@ somewhere in the component template.
 
 Now let's create the home and app components (our "pages"):
 
-````javascript
+```javascript
 // home.ts
 import {Component, View} from 'angular2/angular2';
 import { ROUTER_DIRECTIVES } from 'angular2/router';
@@ -114,9 +114,9 @@ import { ROUTER_DIRECTIVES } from 'angular2/router';
 export class Home {
   constructor() {}
 }
-````
+```
 
-````javascript
+```javascript
 // about.ts
 import {Component, View} from 'angular2/angular2';
 import { ROUTER_DIRECTIVES } from 'angular2/router';
@@ -135,7 +135,7 @@ import { ROUTER_DIRECTIVES } from 'angular2/router';
 export class About {
   constructor() {}
 }
-````
+```
 
 You may have noticed here, the use of the router-link directive
 to navigate between routes.

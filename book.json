@@ -1,0 +1,13 @@
+{
+  "gitbook": "2.4.3",
+  "plugins": ["edit-link", "prism", "-highlight", "github"],
+  "pluginsConfig": {
+    "edit-link": {
+      "base": "https://github.com/youknowriad/angular2-cookbooks/tree/master",
+      "label": "Edit This Page"
+    },
+    "github": {
+      "url": "https://github.com/youknowriad/angular2-cookbooks/"
+    }
+  }
+}

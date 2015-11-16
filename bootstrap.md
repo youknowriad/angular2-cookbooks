@@ -15,7 +15,7 @@ A basic angular2 application is basically composed of three files :
 * an index.html where we include the angular2 bundle,
 a module loader (systemJS for now) and the root component of our application.
 
-````html
+```html
 <!-- index.html -->
 <!doctype html>
 <html>
@@ -40,11 +40,11 @@ a module loader (systemJS for now) and the root component of our application.
   <app></app>
 </body>
 </html>
-````
+```
 
  * our main components file
 
-````javascript
+```javascript
 // app.ts compiled (using typescript) to app.js
 import {Component, View} from 'angular2/angular2';
 
@@ -59,17 +59,17 @@ import {Component, View} from 'angular2/angular2';
 export class App {
   constructor() {}
 }
-````
+```
 
  * and a bootstrap script which is basically a call to the angular2 `bootstrap` function with the root component as parameter.
 
-````javascript
+```javascript
 // bootstrap.ts compiled (using typescript) to bootstrap.js
 import {bootstrap} from 'angular2/angular2';
 import {App} from './app';
 
 bootstrap(App);
-````
+```
 
 Linking all this stuff together can be a little tricky for now (dependencies, transpilation, module loader etc...).
 The angular team is working on a tool called [angular-cli](https://github.com/angular/angular-cli) that should make boostraping a breeze.
@@ -78,24 +78,24 @@ The angular team is working on a tool called [angular-cli](https://github.com/an
 
 First install the tool like so `npm install -g angular-cli` then you should be able to run the `ng` command.
 
-````bash
+```bash
 ng --help
-````
+```
 
 Then, you can bootstrap your application.
 
-````bash
+```bash
 ng new my_app
-````
+```
 
 Your application is now ready. By default
 
 You can run a development server like so
 
-````bash
+```bash
 cd my_app
 ng serve
-````
+```
 
 your application should be available on `http://localhost:4200/`
 

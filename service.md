@@ -16,7 +16,7 @@ and how to use it in an Angular2 component or in another service
 A service in Angular2 is just a class that will be instantiated by the angular DI (Dependency Injection) when needed.
 Let's we create a service to slugify strings. It would look like this.
 
-````javascript
+```javascript
 // slugifyer.ts
 import {Injectable} from 'angular2/angular2';
 
@@ -31,13 +31,13 @@ export class Slugifyer {
       .replace(/-+$/, '');
   }
 }
-````
+```
 
 You may have noticed the `Injectable` annotation. This annotation does nothing special. It's only here to tell typescript to export the class metadata used by the Angular2 DI.
 
 All we have to do next is tell Angular2 how to "provide" the service slugifyer to any component or service that needs it. The simple way to do this is to pass the class `Slugigyer` as a provider in the Angular2 bootstrap call.
 
-````javascript
+```javascript
 // bootstrap.ts compiled (using typescript) to bootstrap.js
 import {bootstrap} from 'angular2/angular2';
 import {App} from './app';
@@ -47,11 +47,11 @@ import {Slugifyer} from './slugifyer';
 bootstrap(App, [
   Slugifyer
 ]);
-````
+```
 
 We can now inject the service in any angular2 components or service as a constructor dependency. Here is an example :
 
-````javascript
+```javascript
 // app.ts
 import {Component, View} from 'angular2/angular2';
 import {Slugifyer} from './slugifyer';
@@ -70,7 +70,7 @@ export class App {
     this.slug = slugifyer.slugify('My plain text');
   }
 }
-````
+```
 
 ## Plunker
 

@@ -17,7 +17,7 @@ Our example will be a search form with an initial value as input and the results
 
 First, let's a create a simple service to search in a list of items.
 
-````javascript
+```javascript
 // language-repository.ts
 import {Injectable} from 'angular2/angular2';
 
@@ -31,11 +31,11 @@ export class LanguageRepository {
     return this.items.filter(item => item.indexOf(str) > -1);
   }
 }
-````
+```
 
 Define the binding for our service
 
-````javascript
+```javascript
 // bootstrap.ts compiled (using typescript) to bootstrap.js
 import {bootstrap} from 'angular2/angular2';
 import {App} from './app';
@@ -45,11 +45,11 @@ import {LanguageRepository} from './language-repository';
 bootstrap(App, [
   LanguageRepository
 ]);
-````
+```
 
 Let's create now our search form component
 
-````javascript
+```javascript
 // search-form.ts
 import {Component, View, EventEmitter} from 'angular2/angular2';
 import {LanguageRepository} from './language-repository';
@@ -77,11 +77,11 @@ export class SearchForm {
     this.success.next({ results: results });
   }
 }
-````
+```
 
 We can now use our search form in another component
 
-````javascript
+```javascript
 // app.ts
 import {Component, View} from 'angular2/angular2';
 import {SearchForm} from './search-form';
@@ -103,7 +103,7 @@ export class App {
     this.count = results.length;
   }
 }
-````
+```
 
 And that's it, easy right !!!
 
