@@ -1,0 +1,596 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Stateless Authentication | Angular2 Cookbooks</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.4.3">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-edit-link/plugin.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-prism/prism.css">
+        
+    
+    
+
+        
+    
+    
+    
+    <link rel="prev" href="./pipe.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book" data-level="5.1" data-basepath="." data-revision="Wed Nov 25 2015 20:51:57 GMT+0100 (CET)">
+    
+
+<div class="book-summary">
+    <div class="book-search" role="search">
+        <input type="text" placeholder="Type to search" class="form-control" />
+    </div>
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+            
+
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="./index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        Introduction
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" >
+            
+            <span><b>1.</b> Bootstrap</span>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="bootstrap.html">
+            
+                
+                    <a href="./bootstrap.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                        Bootstrap
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="routing.html">
+            
+                
+                    <a href="./routing.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                        Routing
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" >
+            
+            <span><b>2.</b> Services</span>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="service.html">
+            
+                
+                    <a href="./service.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        Simple service
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" >
+            
+            <span><b>3.</b> Components</span>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="component-input-output.html">
+            
+                
+                    <a href="./component-input-output.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                        with inputs and outputs
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4" >
+            
+            <span><b>4.</b> Pipes</span>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1" data-path="pipe.html">
+            
+                
+                    <a href="./pipe.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.1.</b>
+                        
+                        Simple pipe (truncate)
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5" >
+            
+            <span><b>5.</b> Advanced</span>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="5.1" data-path="stateless-authentication.html">
+            
+                
+                    <a href="./stateless-authentication.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.1.</b>
+                        
+                        Stateless Authentication
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Table of Contents"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search" aria-label="Search"><i class="fa fa-search"></i></a>
+    
+    <div id="font-settings-wrapper" class="dropdown pull-left">
+        <a href="#" class="btn toggle-dropdown" aria-label="Font Settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="buttons">
+        <button type="button" id="reduce-font-size" class="button size-2">A</button>
+        <button type="button" id="enlarge-font-size" class="button size-2">A</button>
+    </div>
+
+    <div class="buttons font-family-list">
+        <button type="button" data-font="0" class="button">Serif</button>
+        <button type="button" data-font="1" class="button">Sans</button>
+    </div>
+
+    <div class="buttons color-theme-list">
+        <button type="button" id="color-theme-preview-0" class="button size-3" data-theme="0">White</button>
+        <button type="button" id="color-theme-preview-1" class="button size-3" data-theme="1">Sepia</button>
+        <button type="button" id="color-theme-preview-2" class="button size-3" data-theme="2">Night</button>
+    </div>
+</div>
+
+    </div>
+
+    <!-- Actions Right -->
+    
+    <div class="dropdown pull-right">
+        <a href="#" class="btn toggle-dropdown" aria-label="Share"><i class="fa fa-share-alt"></i>
+        </a>
+        <div class="dropdown-menu font-settings dropdown-left">
+            <div class="dropdown-caret">
+                <span class="caret-outer"></span>
+                <span class="caret-inner"></span>
+            </div>
+            <div class="buttons">
+                <button type="button" data-sharing="twitter" class="button">
+                    Share on Twitter
+                </button>
+                <button type="button" data-sharing="google-plus" class="button">
+                    Share on Google
+                </button>
+                <button type="button" data-sharing="facebook" class="button">
+                    Share on Facebook
+                </button>
+                <button type="button" data-sharing="weibo" class="button">
+                    Share on Weibo
+                </button>
+                <button type="button" data-sharing="instapaper" class="button">
+                    Share on Instapaper
+                </button>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    <a href="#" target="_blank" class="btn pull-right google-plus-sharing-link sharing-link" data-sharing="google-plus" aria-label="Google"><i class="fa fa-google-plus"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right facebook-sharing-link sharing-link" data-sharing="facebook" aria-label="Facebook"><i class="fa fa-facebook"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right twitter-sharing-link sharing-link" data-sharing="twitter" aria-label="Twitter"><i class="fa fa-twitter"></i></a>
+    
+    
+    
+
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="./" >Angular2 Cookbooks</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <a id="edit-link" href="https://github.com/youknowriad/angular2-cookbooks/tree/master/stateless-authentication.md" class="btn fa fa-edit pull-left">&nbsp;&nbsp;Edit This Page</a><h1 id="how-to-implement-stateless-authentication">How to implement stateless authentication ?</h1>
+<p>One of the important part of any application is authentication and security.
+In AngularJS we, used to have a custom attribute in each route to tell if this route is protected or not.
+and intercept all route change events to check if we are allowed to access this route or no.
+In this cookbook we&apos;re going to see how to implement a similar behaviour in angular 2.</p>
+<ul>
+<li>The backend login API will be simulated</li>
+<li>We will use localStorage to store our authentication token</li>
+<li>We will also see how we can pass this token to http requests</li>
+</ul>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li><a href="bootstrap.html">Bootstrap an Angular2 application</a></li>
+<li><a href="service.html">Create an Angular2 service</a></li>
+<li><a href="component-input-output.html">create a component with inputs and outputs</a></li>
+</ul>
+<h2 id="angular-version">Angular version</h2>
+<ul>
+<li>2.0.0-alpha.46</li>
+</ul>
+<h2 id="how-to">How To ?</h2>
+<p>First, let&apos;s a create a simple authentication service. It will have two roles :</p>
+<ul>
+<li>Storing the current authentication token (if loggedin)</li>
+<li>Have a logout and login methods</li>
+</ul>
+<pre><code class="lang-javascript"><span class="token comment" spellcheck="true">// authentication.ts</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Injectable <span class="token punctuation">}</span> from <span class="token string">&apos;angular2/angular2&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Observable <span class="token punctuation">}</span> from <span class="token string">&apos;@reactivex/rxjs/dist/cjs/Rx&apos;</span><span class="token punctuation">;</span>
+
+@<span class="token function">Injectable</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">Authentication</span> <span class="token punctuation">{</span>
+  token<span class="token punctuation">:</span> string<span class="token punctuation">;</span>
+
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>token <span class="token operator">=</span> localStorage<span class="token punctuation">.</span><span class="token function">getItem</span><span class="token punctuation">(</span><span class="token string">&apos;token&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">login</span><span class="token punctuation">(</span>username<span class="token punctuation">:</span> String<span class="token punctuation">,</span> password<span class="token punctuation">:</span> String<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">/*
+     * If we had a login api, we would have done something like this
+
+    return this.http.post(&apos;/auth/login&apos;, JSON.stringify({
+        username: username,
+        password: password
+      }), {
+        headers: new Headers({
+          &apos;Content-Type&apos;: &apos;application/json&apos;
+        })
+      })
+      .map((res : any) =&gt; {
+        let data = res.json();
+        this.token = data.token;
+        localStorage.setItem(&apos;token&apos;, this.token);
+      });
+
+      for the purpose of this cookbook, we will juste simulate that
+    */</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>username <span class="token operator">===</span> <span class="token string">&apos;test&apos;</span> <span class="token operator">&amp;&amp;</span> password <span class="token operator">===</span> <span class="token string">&apos;test&apos;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>token <span class="token operator">=</span> <span class="token string">&apos;token&apos;</span><span class="token punctuation">;</span>
+      localStorage<span class="token punctuation">.</span><span class="token function">setItem</span><span class="token punctuation">(</span><span class="token string">&apos;token&apos;</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>token<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">return</span> Observable<span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token string">&apos;token&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> Observable<span class="token punctuation">.</span><span class="token keyword">throw</span><span class="token punctuation">(</span><span class="token string">&apos;authentication failure&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">logout</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">/*
+     * If we had a login api, we would have done something like this
+
+    return this.http.get(this.config.serverUrl + &apos;/auth/logout&apos;, {
+      headers: new Headers({
+        &apos;x-security-token&apos;: this.token
+      })
+    })
+    .map((res : any) =&gt; {
+      this.token = undefined;
+      localStorage.removeItem(&apos;token&apos;);
+    });
+     */</span>
+
+    <span class="token keyword">this</span><span class="token punctuation">.</span>token <span class="token operator">=</span> undefined<span class="token punctuation">;</span>
+    localStorage<span class="token punctuation">.</span><span class="token function">removeItem</span><span class="token punctuation">(</span><span class="token string">&apos;token&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> Observable<span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token keyword">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Next, we create a simple utility function (used later) to check if we are loggedin or not.</p>
+<pre><code class="lang-javascript"><span class="token comment" spellcheck="true">// is-loggedin.ts</span>
+<span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">isLoggedin</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token operator">!</span><span class="token operator">!</span>localStorage<span class="token punctuation">.</span><span class="token function">getItem</span><span class="token punctuation">(</span><span class="token string">&apos;token&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Create a login component for the login route</p>
+<pre><code class="lang-javascript"><span class="token comment" spellcheck="true">// login.ts</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Component<span class="token punctuation">,</span> View<span class="token punctuation">,</span> NgIf <span class="token punctuation">}</span> from <span class="token string">&apos;angular2/angular2&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> FORM_DIRECTIVES<span class="token punctuation">,</span> FormBuilder<span class="token punctuation">,</span> Validators<span class="token punctuation">,</span> ControlGroup <span class="token punctuation">}</span> from <span class="token string">&apos;angular2/angular2&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Router <span class="token punctuation">}</span> from <span class="token string">&apos;angular2/router&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Authentication <span class="token punctuation">}</span> from <span class="token string">&apos;./authentication&apos;</span><span class="token punctuation">;</span>
+
+@<span class="token function">Component</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  selector<span class="token punctuation">:</span> <span class="token string">&apos;login&apos;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+@<span class="token function">View</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  directives<span class="token punctuation">:</span> <span class="token punctuation">[</span> FORM_DIRECTIVES<span class="token punctuation">,</span> NgIf <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  template<span class="token punctuation">:</span> `
+    <span class="token operator">&lt;</span>form <span class="token punctuation">[</span>ng<span class="token operator">-</span>form<span class="token operator">-</span>model<span class="token punctuation">]</span><span class="token operator">=</span><span class="token string">&quot;form&quot;</span> <span class="token punctuation">(</span>submit<span class="token punctuation">)</span><span class="token operator">=</span><span class="token string">&quot;onSubmit(form.value)&quot;</span><span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>div <span class="token operator">*</span>ng<span class="token operator">-</span><span class="token keyword">if</span><span class="token operator">=</span><span class="token string">&quot;error&quot;</span><span class="token operator">&gt;</span>Check your password<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>label <span class="token keyword">for</span><span class="token operator">=</span><span class="token string">&quot;username&quot;</span><span class="token operator">&gt;</span>Username<span class="token operator">&lt;</span><span class="token operator">/</span>label<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>input type<span class="token operator">=</span><span class="token string">&quot;text&quot;</span> ng<span class="token operator">-</span>control<span class="token operator">=</span><span class="token string">&quot;username&quot;</span><span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>label <span class="token keyword">for</span><span class="token operator">=</span><span class="token string">&quot;password&quot;</span><span class="token operator">&gt;</span>Password<span class="token operator">&lt;</span><span class="token operator">/</span>label<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>input type<span class="token operator">=</span><span class="token string">&quot;password&quot;</span> ng<span class="token operator">-</span>control<span class="token operator">=</span><span class="token string">&quot;password&quot;</span><span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">&quot;form-group&quot;</span><span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>button type<span class="token operator">=</span><span class="token string">&quot;submit&quot;</span> <span class="token punctuation">[</span>disabled<span class="token punctuation">]</span><span class="token operator">=</span><span class="token string">&quot;!form.valid&quot;</span><span class="token operator">&gt;</span>Login<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>form<span class="token operator">&gt;</span>
+  `
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">Login</span> <span class="token punctuation">{</span>
+  form<span class="token punctuation">:</span> ControlGroup<span class="token punctuation">;</span>
+  error<span class="token punctuation">:</span> boolean <span class="token operator">=</span> <span class="token keyword">false</span><span class="token punctuation">;</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span>fb<span class="token punctuation">:</span> FormBuilder<span class="token punctuation">,</span> <span class="token keyword">public</span> auth<span class="token punctuation">:</span> Authentication<span class="token punctuation">,</span> <span class="token keyword">public</span> router<span class="token punctuation">:</span> Router<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>form <span class="token operator">=</span> fb<span class="token punctuation">.</span><span class="token function">group</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      username<span class="token punctuation">:</span>  <span class="token punctuation">[</span><span class="token string">&apos;&apos;</span><span class="token punctuation">,</span> Validators<span class="token punctuation">.</span>required<span class="token punctuation">]</span><span class="token punctuation">,</span>
+      password<span class="token punctuation">:</span>  <span class="token punctuation">[</span><span class="token string">&apos;&apos;</span><span class="token punctuation">,</span> Validators<span class="token punctuation">.</span>required<span class="token punctuation">]</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">onSubmit</span><span class="token punctuation">(</span>value<span class="token punctuation">:</span> any<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>auth<span class="token punctuation">.</span><span class="token function">login</span><span class="token punctuation">(</span>value<span class="token punctuation">.</span>username<span class="token punctuation">,</span> value<span class="token punctuation">.</span>password<span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
+        <span class="token punctuation">(</span>token<span class="token punctuation">:</span> any<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token keyword">this</span><span class="token punctuation">.</span>router<span class="token punctuation">.</span><span class="token function">navigate</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">&apos;../Home&apos;</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span> <span class="token keyword">this</span><span class="token punctuation">.</span>error <span class="token operator">=</span> <span class="token keyword">true</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+      <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>This component is a basic login form that redirects to the <code>Home</code> route on success.
+Now, let&apos;s create the <code>Home</code> component which needs to be secured.</p>
+<pre><code class="lang-javascript"><span class="token comment" spellcheck="true">// home.ts</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Component<span class="token punctuation">,</span> View <span class="token punctuation">}</span> from <span class="token string">&apos;angular2/angular2&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Router<span class="token punctuation">,</span> CanActivate <span class="token punctuation">}</span> from <span class="token string">&apos;angular2/router&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Authentication <span class="token punctuation">}</span> from <span class="token string">&apos;./authentication&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> isLoggedin <span class="token punctuation">}</span>  from <span class="token string">&apos;./is-loggedin&apos;</span><span class="token punctuation">;</span>
+
+@<span class="token function">Component</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  selector<span class="token punctuation">:</span> <span class="token string">&apos;home&apos;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+@<span class="token function">View</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  directives<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  template<span class="token punctuation">:</span> `
+    <span class="token operator">&lt;</span>h2<span class="token operator">&gt;</span>I am logged <span class="token keyword">in</span><span class="token operator">&lt;</span><span class="token operator">/</span>h2<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>a href<span class="token operator">=</span><span class="token string">&quot;#&quot;</span> <span class="token punctuation">(</span>click<span class="token punctuation">)</span><span class="token operator">=</span><span class="token string">&quot;onLogout()&quot;</span><span class="token operator">&gt;</span>Logout<span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">&gt;</span>
+  `
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+@<span class="token function">CanActivate</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">isLoggedin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">Home</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token keyword">public</span> auth<span class="token punctuation">:</span> Authentication<span class="token punctuation">,</span> <span class="token keyword">public</span> router<span class="token punctuation">:</span> Router<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+  <span class="token function">onLogout</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>auth<span class="token punctuation">.</span><span class="token function">logout</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>
+        <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token keyword">this</span><span class="token punctuation">.</span>router<span class="token punctuation">.</span><span class="token function">navigate</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">&apos;../Login&apos;</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Notice the use of the <code>CanActivate</code> router lifecycle callback. Is allow us to restrict the component use to the logged in users only.
+Last thing we need to do, is define our root component and the providers in the bootstrap script</p>
+<pre><code class="lang-javascript"><span class="token comment" spellcheck="true">// app.ts</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>Component<span class="token punctuation">,</span> View<span class="token punctuation">}</span> from <span class="token string">&apos;angular2/angular2&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> RouteConfig<span class="token punctuation">,</span> ROUTER_DIRECTIVES <span class="token punctuation">}</span> from <span class="token string">&apos;angular2/router&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Home <span class="token punctuation">}</span> from <span class="token string">&apos;./home&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Login <span class="token punctuation">}</span> from <span class="token string">&apos;./login&apos;</span><span class="token punctuation">;</span>
+
+@<span class="token function">Component</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  selector<span class="token punctuation">:</span> <span class="token string">&apos;app&apos;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+@<span class="token function">View</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  directives<span class="token punctuation">:</span> <span class="token punctuation">[</span>ROUTER_DIRECTIVES<span class="token punctuation">]</span>
+  template<span class="token punctuation">:</span> `
+    <span class="token operator">&lt;</span>h1<span class="token operator">&gt;</span>Hello world<span class="token operator">&lt;</span><span class="token operator">/</span>h1<span class="token operator">&gt;</span>
+
+    <span class="token operator">&lt;</span>router<span class="token operator">-</span>outlet<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>router<span class="token operator">-</span>outlet<span class="token operator">&gt;</span>
+  `
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+@<span class="token function">RouteConfig</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+    <span class="token punctuation">{</span> path<span class="token punctuation">:</span> <span class="token string">&apos;/&apos;</span><span class="token punctuation">,</span> redirectTo<span class="token punctuation">:</span> <span class="token string">&apos;/home&apos;</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span> path<span class="token punctuation">:</span> <span class="token string">&apos;/home&apos;</span><span class="token punctuation">,</span> as<span class="token punctuation">:</span> <span class="token string">&apos;Home&apos;</span><span class="token punctuation">,</span> component<span class="token punctuation">:</span> Home <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span> path<span class="token punctuation">:</span> <span class="token string">&apos;/login&apos;</span><span class="token punctuation">,</span> as<span class="token punctuation">:</span> <span class="token string">&apos;Login&apos;</span><span class="token punctuation">,</span> component<span class="token punctuation">:</span> Login <span class="token punctuation">}</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">App</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<pre><code class="lang-javascript"><span class="token comment" spellcheck="true">// bootstrap.ts</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>bootstrap<span class="token punctuation">,</span> provide<span class="token punctuation">}</span> from <span class="token string">&apos;angular2/angular2&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>App<span class="token punctuation">}</span> from <span class="token string">&apos;./app&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>ROUTER_PROVIDERS<span class="token punctuation">,</span> LocationStrategy<span class="token punctuation">,</span> HashLocationStrategy<span class="token punctuation">}</span> from <span class="token string">&apos;angular2/router&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>Authentication<span class="token punctuation">}</span> from <span class="token string">&apos;./authentication&apos;</span><span class="token punctuation">;</span>
+
+<span class="token function">bootstrap</span><span class="token punctuation">(</span>App<span class="token punctuation">,</span> <span class="token punctuation">[</span>
+  ROUTER_PROVIDERS<span class="token punctuation">,</span>
+  <span class="token function">provide</span><span class="token punctuation">(</span>LocationStrategy<span class="token punctuation">,</span> <span class="token punctuation">{</span>useClass<span class="token punctuation">:</span> HashLocationStrategy<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  Authentication
+<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h2 id="plunker">Plunker</h2>
+<p><a href="http://plnkr.co/edit/j69yu9cSIQRL2GJZFCd1?p=preview" target="_blank">http://plnkr.co/edit/j69yu9cSIQRL2GJZFCd1?p=preview</a> (user &apos;test&apos;, password &apos;test)</p>
+<h2 id="learn-more">Learn more</h2>
+<p>You want to use JWT tokens, may be you can take a look at this library <a href="https://github.com/auth0/angular2-jwt" target="_blank">https://github.com/auth0/angular2-jwt</a></p>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="./pipe.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Simple pipe (truncate)"><i class="fa fa-angle-left"></i></a>
+        
+        
+    </div>
+</div>
+
+        
+<script src="gitbook/app.js"></script>
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-edit-link/plugin.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-github/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"fontSettings":{"theme":null,"family":"sans","size":2},"edit-link":{"base":"https://github.com/youknowriad/angular2-cookbooks/tree/master","label":"Edit This Page"},"github":{"url":"https://github.com/youknowriad/angular2-cookbooks/"}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

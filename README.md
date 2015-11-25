@@ -22,6 +22,8 @@ Each cookbook has a defined format : Prerequisites, last tested Angular2 version
 
  * [Create an Angular2 Pipe : A truncate pipe](pipe.md)
 
+## Advanced
+ * [Implement a stateless authentication mechanism](stateless-authentication.md)
 
 # More resources
 

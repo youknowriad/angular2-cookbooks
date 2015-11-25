@@ -3,11 +3,13 @@
 This is the summary of my book.
 
 * Bootstrap
-    * [Bootstrap an Angular2 application](bootstrap.md)
-    * [How to use the angular2 router ?](routing.md)
+    * [Bootstrap](bootstrap.md)
+    * [Routing](routing.md)
 * Services
-    * [Create an Angular2 service](service.md)
+    * [Simple service](service.md)
 * Components
-    * [Create a component with inputs and outputs : A search form](component-input-output.md)
+    * [with inputs and outputs](component-input-output.md)
 * Pipes
-    * [Create an Angular2 Pipe : A truncate pipe](pipe.md)
+    * [Simple pipe (truncate)](pipe.md)
+* Advanced
+    * [Stateless Authentication](stateless-authentication.md)
