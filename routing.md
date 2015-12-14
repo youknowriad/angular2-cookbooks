@@ -9,7 +9,7 @@ configure routes and create links between routes.
 
 ## Angular version
 
-- 2.0.0-alpha.46
+- 2.0.0-alpha.53
 
 ## How To ?
 
@@ -48,7 +48,7 @@ Now we add angular router provider to our global providers
 
 ```javascript
 // bootstrap.ts compiled (using typescript) to bootstrap.js
-import {bootstrap} from 'angular2/angular2';
+import {bootstrap} from 'angular2/platform/browser';
 import {App} from './app';
 import {ROUTER_PROVIDERS} from 'angular2/router';
 
@@ -59,15 +59,13 @@ Next, let's define some routes in our root component `App`.
 
 ```javascript
 // app.ts compiled (using typescript) to app.js
-import {Component, View} from 'angular2/angular2';
-import { RouteConfig, ROUTER_DIRECTIVES } from 'angular2/router';
-import { Home } from './home';
-import { About } from './about';
+import {Component} from 'angular2/core';
+import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
+import {Home} from './home';
+import {About} from './about';
 
 @Component({
-  selector: 'app'
-})
-@View({
+  selector: 'app',
   directives: [ROUTER_DIRECTIVES]
   template: `
     <h1>Hello world</h1>
@@ -76,7 +74,7 @@ import { About } from './about';
   `
 })
 @RouteConfig([
-    { path: '/', redirectTo: '/home' },
+    { path: '/', redirectTo: ['Home'] },
     { path: '/home', as: 'Home', component: Home },
     { path: '/about', as: 'About', component: About }
 ])
@@ -97,18 +95,16 @@ Now let's create the home and app components (our "pages"):
 
 ```javascript
 // home.ts
-import {Component, View} from 'angular2/angular2';
-import { ROUTER_DIRECTIVES } from 'angular2/router';
+import {Component} from 'angular2/cpre';
+import {ROUTER_DIRECTIVES} from 'angular2/router';
 
 @Component({
-  selector: 'home'
-})
-@View({
+  selector: 'home',
   directives: [ROUTER_DIRECTIVES]
   template: `
     <h2>Home</h2>
 
-    <a [router-link]="['../About']">Go to about</a>
+    <a [routerLink]="['../About']">Go to about</a>
   `
 })
 export class Home {
@@ -118,18 +114,16 @@ export class Home {
 
 ```javascript
 // about.ts
-import {Component, View} from 'angular2/angular2';
-import { ROUTER_DIRECTIVES } from 'angular2/router';
+import {Component} from 'angular2/core';
+import {ROUTER_DIRECTIVES} from 'angular2/router';
 
 @Component({
-  selector: 'about'
-})
-@View({
+  selector: 'about',
   directives: [ROUTER_DIRECTIVES]
   template: `
     <h2>About</h2>
 
-    <a [router-link]="['../Home']">Go to home</a>
+    <a [routerLink]="['../Home']">Go to home</a>
   `
 })
 export class About {

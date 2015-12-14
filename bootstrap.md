@@ -6,7 +6,7 @@
 
 ## Angular version
 
-- 2.0.0-alpha.46
+- 2.0.0-alpha.53
 
 ## How to ?
 
@@ -46,12 +46,10 @@ a module loader (systemJS for now) and the root component of our application.
 
 ```javascript
 // app.ts compiled (using typescript) to app.js
-import {Component, View} from 'angular2/angular2';
+import {Component} from 'angular2/core';
 
 @Component({
-  selector: 'app'
-})
-@View({
+  selector: 'app',
   template: `
     <h1>Hello world</h1>
   `
@@ -65,7 +63,7 @@ export class App {
 
 ```javascript
 // bootstrap.ts compiled (using typescript) to bootstrap.js
-import {bootstrap} from 'angular2/angular2';
+import {bootstrap} from 'angular2/platform/browser';
 import {App} from './app';
 
 bootstrap(App);

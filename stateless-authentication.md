@@ -17,7 +17,7 @@ In this cookbook we're going to see how to implement a similar behaviour in angu
 
 ## Angular version
 
-- 2.0.0-alpha.46
+- 2.0.0-alpha.53
 
 ## How To ?
 
@@ -27,8 +27,8 @@ First, let's a create a simple authentication service. It will have two roles :
 
 ```javascript
 // authentication.ts
-import { Injectable } from 'angular2/angular2';
-import { Observable } from '@reactivex/rxjs/dist/cjs/Rx';
+import {Injectable} from 'angular2/core';
+import {Observable} from 'rxjs/Observable';
 
 @Injectable()
 export class Authentication {
@@ -104,27 +104,24 @@ Create a login component for the login route
 
 ```javascript
 // login.ts
-import { Component, View, NgIf } from 'angular2/angular2';
-import { FORM_DIRECTIVES, FormBuilder, Validators, ControlGroup } from 'angular2/angular2';
-import { Router } from 'angular2/router';
-import { Authentication } from './authentication';
+import {Component} from 'angular2/core';
+import {FORM_DIRECTIVES, FormBuilder, Validators, ControlGroup, NgIf} from 'angular2/common';
+import {Router} from 'angular2/router';
+import {Authentication} from './authentication';
 
 @Component({
-  selector: 'login'
-})
-
-@View({
+  selector: 'login',
   directives: [ FORM_DIRECTIVES, NgIf ],
   template: `
-    <form [ng-form-model]="form" (submit)="onSubmit(form.value)">
-      <div *ng-if="error">Check your password</div>
+    <form [ngFormModel]="form" (submit)="onSubmit(form.value)">
+      <div *ngIf="error">Check your password</div>
       <div>
         <label for="username">Username</label>
-        <input type="text" ng-control="username">
+        <input type="text" ngControl="username">
       </div>
       <div>
         <label for="password">Password</label>
-        <input type="password" ng-control="password">
+        <input type="password" ngControl="password">
       </div>
       <div class="form-group">
         <button type="submit" [disabled]="!form.valid">Login</button>
@@ -158,16 +155,13 @@ Now, let's create the `Home` component which needs to be secured.
 
 ```javascript
 // home.ts
-import { Component, View } from 'angular2/angular2';
-import { Router, CanActivate } from 'angular2/router';
-import { Authentication } from './authentication';
-import { isLoggedin }  from './is-loggedin';
+import {Component} from 'angular2/core';
+import {Router, CanActivate} from 'angular2/router';
+import {Authentication} from './authentication';
+import {isLoggedin}  from './is-loggedin';
 
 @Component({
-  selector: 'home'
-})
-
-@View({
+  selector: 'home',
   directives: [],
   template: `
     <h2>I am logged in</h2>
@@ -193,15 +187,13 @@ Last thing we need to do, is define our root component and the providers in the 
 
 ```javascript
 // app.ts
-import {Component, View} from 'angular2/angular2';
-import { RouteConfig, ROUTER_DIRECTIVES } from 'angular2/router';
-import { Home } from './home';
-import { Login } from './login';
+import {Component} from 'angular2/core';
+import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
+import {Home} from './home';
+import {Login} from './login';
 
 @Component({
-  selector: 'app'
-})
-@View({
+  selector: 'app',
   directives: [ROUTER_DIRECTIVES]
   template: `
     <h1>Hello world</h1>
@@ -210,7 +202,7 @@ import { Login } from './login';
   `
 })
 @RouteConfig([
-    { path: '/', redirectTo: '/home' },
+    { path: '/', redirectTo: ['Home'] },
     { path: '/home', as: 'Home', component: Home },
     { path: '/login', as: 'Login', component: Login }
 ])
@@ -221,7 +213,8 @@ export class App {
 
 ```javascript
 // bootstrap.ts
-import {bootstrap, provide} from 'angular2/angular2';
+import {provide} from 'angular2/core';
+import {bootstrap} from 'angular2/platform/browser';
 import {App} from './app';
 import {ROUTER_PROVIDERS, LocationStrategy, HashLocationStrategy} from 'angular2/router';
 import {Authentication} from './authentication';

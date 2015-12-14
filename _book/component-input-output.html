@@ -44,7 +44,7 @@
     <body>
         
         
-    <div class="book" data-level="3.1" data-basepath="." data-revision="Wed Nov 25 2015 20:51:57 GMT+0100 (CET)">
+    <div class="book" data-level="3.1" data-basepath="." data-revision="Mon Dec 14 2015 15:58:12 GMT+0100 (CET)">
     
 
 <div class="book-summary">
@@ -347,12 +347,12 @@ Our example will be a search form with an initial value as input and the results
 </ul>
 <h2 id="angular-version">Angular version</h2>
 <ul>
-<li>2.0.0-alpha.46</li>
+<li>2.0.0-alpha.53</li>
 </ul>
 <h2 id="how-to">How To ?</h2>
 <p>First, let&apos;s a create a simple service to search in a list of items.</p>
 <pre><code class="lang-javascript"><span class="token comment" spellcheck="true">// language-repository.ts</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span>Injectable<span class="token punctuation">}</span> from <span class="token string">&apos;angular2/angular2&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>Injectable<span class="token punctuation">}</span> from <span class="token string">&apos;angular2/core&apos;</span><span class="token punctuation">;</span>
 
 @<span class="token function">Injectable</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">LanguageRepository</span> <span class="token punctuation">{</span>
@@ -367,7 +367,7 @@ Our example will be a search form with an initial value as input and the results
 </code></pre>
 <p>Define the binding for our service</p>
 <pre><code class="lang-javascript"><span class="token comment" spellcheck="true">// bootstrap.ts compiled (using typescript) to bootstrap.js</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span>bootstrap<span class="token punctuation">}</span> from <span class="token string">&apos;angular2/angular2&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>bootstrap<span class="token punctuation">}</span> from <span class="token string">&apos;angular2/platform/browser&apos;</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span>App<span class="token punctuation">}</span> from <span class="token string">&apos;./app&apos;</span><span class="token punctuation">;</span>
 
 <span class="token keyword">import</span> <span class="token punctuation">{</span>LanguageRepository<span class="token punctuation">}</span> from <span class="token string">&apos;./language-repository&apos;</span><span class="token punctuation">;</span>
@@ -378,15 +378,13 @@ Our example will be a search form with an initial value as input and the results
 </code></pre>
 <p>Let&apos;s create now our search form component</p>
 <pre><code class="lang-javascript"><span class="token comment" spellcheck="true">// search-form.ts</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span>Component<span class="token punctuation">,</span> View<span class="token punctuation">,</span> EventEmitter<span class="token punctuation">}</span> from <span class="token string">&apos;angular2/angular2&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>Component<span class="token punctuation">,</span> EventEmitter<span class="token punctuation">}</span> from <span class="token string">&apos;angular2/core&apos;</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span>LanguageRepository<span class="token punctuation">}</span> from <span class="token string">&apos;./language-repository&apos;</span><span class="token punctuation">;</span>
 
 @<span class="token function">Component</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
   selector<span class="token punctuation">:</span> <span class="token string">&apos;search-form&apos;</span><span class="token punctuation">,</span>
   inputs<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&apos;initial:initial&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-  outputs<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&apos;success&apos;</span><span class="token punctuation">]</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-@<span class="token function">View</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  outputs<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&apos;success&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
   template<span class="token punctuation">:</span> `
     <span class="token operator">&lt;</span>form <span class="token punctuation">(</span>submit<span class="token punctuation">)</span><span class="token operator">=</span><span class="token string">&quot;$event.preventDefault(); search(query.value);&quot;</span><span class="token operator">&gt;</span>
       <span class="token operator">&lt;</span>input #query <span class="token punctuation">[</span>value<span class="token punctuation">]</span><span class="token operator">=</span><span class="token string">&quot;initial&quot;</span> <span class="token operator">/</span><span class="token operator">&gt;</span>
@@ -407,13 +405,11 @@ Our example will be a search form with an initial value as input and the results
 </code></pre>
 <p>We can now use our search form in another component</p>
 <pre><code class="lang-javascript"><span class="token comment" spellcheck="true">// app.ts</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span>Component<span class="token punctuation">,</span> View<span class="token punctuation">}</span> from <span class="token string">&apos;angular2/angular2&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>Component<span class="token punctuation">}</span> from <span class="token string">&apos;angular2/core&apos;</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span>SearchForm<span class="token punctuation">}</span> from <span class="token string">&apos;./search-form&apos;</span><span class="token punctuation">;</span>
 
 @<span class="token function">Component</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-  selector<span class="token punctuation">:</span> <span class="token string">&apos;app&apos;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-@<span class="token function">View</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  selector<span class="token punctuation">:</span> <span class="token string">&apos;app&apos;</span><span class="token punctuation">,</span>
   directives<span class="token punctuation">:</span> <span class="token punctuation">[</span> SearchForm <span class="token punctuation">]</span><span class="token punctuation">,</span>
   template<span class="token punctuation">:</span> `
     Results Count <span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token punctuation">{</span> count <span class="token punctuation">}</span><span class="token punctuation">}</span>
@@ -458,6 +454,10 @@ Our example will be a search form with an initial value as input and the results
 
     
     <script src="gitbook/plugins/gitbook-plugin-github/plugin.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
     
 
 <script>

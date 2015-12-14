@@ -44,7 +44,7 @@
     <body>
         
         
-    <div class="book" data-level="2.1" data-basepath="." data-revision="Wed Nov 25 2015 20:51:57 GMT+0100 (CET)">
+    <div class="book" data-level="2.1" data-basepath="." data-revision="Mon Dec 14 2015 15:58:12 GMT+0100 (CET)">
     
 
 <div class="book-summary">
@@ -345,13 +345,13 @@ and how to use it in an Angular2 component or in another service</p>
 </ul>
 <h2 id="angular-version">Angular version</h2>
 <ul>
-<li>2.0.0-alpha.46</li>
+<li>2.0.0-alpha.53</li>
 </ul>
 <h2 id="how-to">How To ?</h2>
 <p>A service in Angular2 is just a class that will be instantiated by the angular DI (Dependency Injection) when needed.
 Let&apos;s we create a service to slugify strings. It would look like this.</p>
 <pre><code class="lang-javascript"><span class="token comment" spellcheck="true">// slugifyer.ts</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span>Injectable<span class="token punctuation">}</span> from <span class="token string">&apos;angular2/angular2&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>Injectable<span class="token punctuation">}</span> from <span class="token string">&apos;angular2/core&apos;</span><span class="token punctuation">;</span>
 
 @<span class="token function">Injectable</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">Slugifyer</span> <span class="token punctuation">{</span>
@@ -368,7 +368,7 @@ Let&apos;s we create a service to slugify strings. It would look like this.</p>
 <p>You may have noticed the <code>Injectable</code> annotation. This annotation does nothing special. It&apos;s only here to tell typescript to export the class metadata used by the Angular2 DI.</p>
 <p>All we have to do next is tell Angular2 how to &quot;provide&quot; the service slugifyer to any component or service that needs it. The simple way to do this is to pass the class <code>Slugigyer</code> as a provider in the Angular2 bootstrap call.</p>
 <pre><code class="lang-javascript"><span class="token comment" spellcheck="true">// bootstrap.ts compiled (using typescript) to bootstrap.js</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span>bootstrap<span class="token punctuation">}</span> from <span class="token string">&apos;angular2/angular2&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>bootstrap<span class="token punctuation">}</span> from <span class="token string">&apos;angular2/platform/browser&apos;</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span>App<span class="token punctuation">}</span> from <span class="token string">&apos;./app&apos;</span><span class="token punctuation">;</span>
 
 <span class="token keyword">import</span> <span class="token punctuation">{</span>Slugifyer<span class="token punctuation">}</span> from <span class="token string">&apos;./slugifyer&apos;</span><span class="token punctuation">;</span>
@@ -379,13 +379,11 @@ Let&apos;s we create a service to slugify strings. It would look like this.</p>
 </code></pre>
 <p>We can now inject the service in any angular2 components or service as a constructor dependency. Here is an example :</p>
 <pre><code class="lang-javascript"><span class="token comment" spellcheck="true">// app.ts</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span>Component<span class="token punctuation">,</span> View<span class="token punctuation">}</span> from <span class="token string">&apos;angular2/angular2&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>Component<span class="token punctuation">}</span> from <span class="token string">&apos;angular2/core&apos;</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span>Slugifyer<span class="token punctuation">}</span> from <span class="token string">&apos;./slugifyer&apos;</span><span class="token punctuation">;</span>
 
 @<span class="token function">Component</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-  selector<span class="token punctuation">:</span> <span class="token string">&apos;app&apos;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-@<span class="token function">View</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  selector<span class="token punctuation">:</span> <span class="token string">&apos;app&apos;</span><span class="token punctuation">,</span>
   template<span class="token punctuation">:</span> `
     <span class="token operator">&lt;</span>h1<span class="token operator">&gt;</span><span class="token punctuation">{</span><span class="token punctuation">{</span> slug <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>h1<span class="token operator">&gt;</span>
   `
@@ -426,6 +424,10 @@ Let&apos;s we create a service to slugify strings. It would look like this.</p>
 
     
     <script src="gitbook/plugins/gitbook-plugin-github/plugin.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
     
 
 <script>

@@ -11,7 +11,7 @@ Our example will be a search form with an initial value as input and the results
 
 ## Angular version
 
-- 2.0.0-alpha.46
+- 2.0.0-alpha.53
 
 ## How To ?
 
@@ -19,7 +19,7 @@ First, let's a create a simple service to search in a list of items.
 
 ```javascript
 // language-repository.ts
-import {Injectable} from 'angular2/angular2';
+import {Injectable} from 'angular2/core';
 
 @Injectable()
 export class LanguageRepository {
@@ -37,7 +37,7 @@ Define the binding for our service
 
 ```javascript
 // bootstrap.ts compiled (using typescript) to bootstrap.js
-import {bootstrap} from 'angular2/angular2';
+import {bootstrap} from 'angular2/platform/browser';
 import {App} from './app';
 
 import {LanguageRepository} from './language-repository';
@@ -51,15 +51,13 @@ Let's create now our search form component
 
 ```javascript
 // search-form.ts
-import {Component, View, EventEmitter} from 'angular2/angular2';
+import {Component, EventEmitter} from 'angular2/core';
 import {LanguageRepository} from './language-repository';
 
 @Component({
   selector: 'search-form',
   inputs: ['initial:initial'],
-  outputs: ['success']
-})
-@View({
+  outputs: ['success'],
   template: `
     <form (submit)="$event.preventDefault(); search(query.value);">
       <input #query [value]="initial" />
@@ -83,13 +81,11 @@ We can now use our search form in another component
 
 ```javascript
 // app.ts
-import {Component, View} from 'angular2/angular2';
+import {Component} from 'angular2/core';
 import {SearchForm} from './search-form';
 
 @Component({
-  selector: 'app'
-})
-@View({
+  selector: 'app',
   directives: [ SearchForm ],
   template: `
     Results Count : {{ count }}

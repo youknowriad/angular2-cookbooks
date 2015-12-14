@@ -9,7 +9,7 @@ and how to use it in an Angular2 component or in another service
 
 ## Angular version
 
-- 2.0.0-alpha.46
+- 2.0.0-alpha.53
 
 ## How To ?
 
@@ -18,7 +18,7 @@ Let's we create a service to slugify strings. It would look like this.
 
 ```javascript
 // slugifyer.ts
-import {Injectable} from 'angular2/angular2';
+import {Injectable} from 'angular2/core';
 
 @Injectable()
 export class Slugifyer {
@@ -39,7 +39,7 @@ All we have to do next is tell Angular2 how to "provide" the service slugifyer t
 
 ```javascript
 // bootstrap.ts compiled (using typescript) to bootstrap.js
-import {bootstrap} from 'angular2/angular2';
+import {bootstrap} from 'angular2/platform/browser';
 import {App} from './app';
 
 import {Slugifyer} from './slugifyer';
@@ -53,13 +53,11 @@ We can now inject the service in any angular2 components or service as a constru
 
 ```javascript
 // app.ts
-import {Component, View} from 'angular2/angular2';
+import {Component} from 'angular2/core';
 import {Slugifyer} from './slugifyer';
 
 @Component({
-  selector: 'app'
-})
-@View({
+  selector: 'app',
   template: `
     <h1>{{ slug }}</h1>
   `

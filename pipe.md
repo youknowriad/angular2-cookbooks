@@ -8,7 +8,7 @@ Pipes in Angular2 are the equivalent of filters in Angular.JS (1). Let's create 
 
 ## Angular version
 
-- 2.0.0-alpha.46
+- 2.0.0-alpha.53
 
 ## How To ?
 
@@ -16,7 +16,7 @@ A pipe in Angular2 is just a class with a transform method like so
 
 ```javascript
 // truncate.ts
-import {Pipe} from 'angular2/angular2'
+import {Pipe} from 'angular2/core'
 
 @Pipe({
   name: 'truncate'
@@ -35,13 +35,11 @@ Next let's use our pipe
 
 ```javascript
 // app.ts
-import {Component, View} from 'angular2/angular2';
+import {Component} from 'angular2/core';
 import {TruncatePipe} from './truncate';
 
 @Component({
-  selector: 'app'
-})
-@View({
+  selector: 'app',
   pipes: [TruncatePipe]
   template: `
     <p>{{ 'this is a not so long string' | truncate }}</p>

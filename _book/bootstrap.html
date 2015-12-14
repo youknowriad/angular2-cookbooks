@@ -44,7 +44,7 @@
     <body>
         
         
-    <div class="book" data-level="1.1" data-basepath="." data-revision="Wed Nov 25 2015 20:51:57 GMT+0100 (CET)">
+    <div class="book" data-level="1.1" data-basepath="." data-revision="Mon Dec 14 2015 15:58:12 GMT+0100 (CET)">
     
 
 <div class="book-summary">
@@ -343,7 +343,7 @@
 </ul>
 <h2 id="angular-version">Angular version</h2>
 <ul>
-<li>2.0.0-alpha.46</li>
+<li>2.0.0-alpha.53</li>
 </ul>
 <h2 id="how-to">How to ?</h2>
 <p>A basic angular2 application is basically composed of three files :</p>
@@ -380,12 +380,10 @@ a module loader (systemJS for now) and the root component of our application.</l
 <li>our main components file</li>
 </ul>
 <pre><code class="lang-javascript"><span class="token comment" spellcheck="true">// app.ts compiled (using typescript) to app.js</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span>Component<span class="token punctuation">,</span> View<span class="token punctuation">}</span> from <span class="token string">&apos;angular2/angular2&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>Component<span class="token punctuation">}</span> from <span class="token string">&apos;angular2/core&apos;</span><span class="token punctuation">;</span>
 
 @<span class="token function">Component</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-  selector<span class="token punctuation">:</span> <span class="token string">&apos;app&apos;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-@<span class="token function">View</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  selector<span class="token punctuation">:</span> <span class="token string">&apos;app&apos;</span><span class="token punctuation">,</span>
   template<span class="token punctuation">:</span> `
     <span class="token operator">&lt;</span>h1<span class="token operator">&gt;</span>Hello world<span class="token operator">&lt;</span><span class="token operator">/</span>h1<span class="token operator">&gt;</span>
   `
@@ -398,7 +396,7 @@ a module loader (systemJS for now) and the root component of our application.</l
 <li>and a bootstrap script which is basically a call to the angular2 <code>bootstrap</code> function with the root component as parameter.</li>
 </ul>
 <pre><code class="lang-javascript"><span class="token comment" spellcheck="true">// bootstrap.ts compiled (using typescript) to bootstrap.js</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span>bootstrap<span class="token punctuation">}</span> from <span class="token string">&apos;angular2/angular2&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>bootstrap<span class="token punctuation">}</span> from <span class="token string">&apos;angular2/platform/browser&apos;</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span>App<span class="token punctuation">}</span> from <span class="token string">&apos;./app&apos;</span><span class="token punctuation">;</span>
 
 <span class="token function">bootstrap</span><span class="token punctuation">(</span>App<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -453,6 +451,10 @@ ng serve
 
     
     <script src="gitbook/plugins/gitbook-plugin-github/plugin.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
     
 
 <script>
