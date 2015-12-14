@@ -44,7 +44,7 @@
     <body>
         
         
-    <div class="book" data-level="4.1" data-basepath="." data-revision="Wed Nov 25 2015 20:51:57 GMT+0100 (CET)">
+    <div class="book" data-level="4.1" data-basepath="." data-revision="Mon Dec 14 2015 15:58:12 GMT+0100 (CET)">
     
 
 <div class="book-summary">
@@ -344,12 +344,12 @@
 </ul>
 <h2 id="angular-version">Angular version</h2>
 <ul>
-<li>2.0.0-alpha.46</li>
+<li>2.0.0-alpha.53</li>
 </ul>
 <h2 id="how-to">How To ?</h2>
 <p>A pipe in Angular2 is just a class with a transform method like so</p>
 <pre><code class="lang-javascript"><span class="token comment" spellcheck="true">// truncate.ts</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span>Pipe<span class="token punctuation">}</span> from <span class="token string">&apos;angular2/angular2&apos;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>Pipe<span class="token punctuation">}</span> from <span class="token string">&apos;angular2/core&apos;</span>
 
 @<span class="token function">Pipe</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
   name<span class="token punctuation">:</span> <span class="token string">&apos;truncate&apos;</span>
@@ -365,13 +365,11 @@
 </code></pre>
 <p>Next let&apos;s use our pipe</p>
 <pre><code class="lang-javascript"><span class="token comment" spellcheck="true">// app.ts</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span>Component<span class="token punctuation">,</span> View<span class="token punctuation">}</span> from <span class="token string">&apos;angular2/angular2&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>Component<span class="token punctuation">}</span> from <span class="token string">&apos;angular2/core&apos;</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span>TruncatePipe<span class="token punctuation">}</span> from <span class="token string">&apos;./truncate&apos;</span><span class="token punctuation">;</span>
 
 @<span class="token function">Component</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-  selector<span class="token punctuation">:</span> <span class="token string">&apos;app&apos;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-@<span class="token function">View</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  selector<span class="token punctuation">:</span> <span class="token string">&apos;app&apos;</span><span class="token punctuation">,</span>
   pipes<span class="token punctuation">:</span> <span class="token punctuation">[</span>TruncatePipe<span class="token punctuation">]</span>
   template<span class="token punctuation">:</span> `
     <span class="token operator">&lt;</span>p<span class="token operator">&gt;</span><span class="token punctuation">{</span><span class="token punctuation">{</span> <span class="token string">&apos;this is a not so long string&apos;</span> <span class="token operator">|</span> truncate <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">&gt;</span>
@@ -414,6 +412,10 @@
 
     
     <script src="gitbook/plugins/gitbook-plugin-github/plugin.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
     
 
 <script>

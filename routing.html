@@ -44,7 +44,7 @@
     <body>
         
         
-    <div class="book" data-level="1.2" data-basepath="." data-revision="Wed Nov 25 2015 20:51:57 GMT+0100 (CET)">
+    <div class="book" data-level="1.2" data-basepath="." data-revision="Mon Dec 14 2015 15:58:12 GMT+0100 (CET)">
     
 
 <div class="book-summary">
@@ -345,7 +345,7 @@ configure routes and create links between routes.</p>
 </ul>
 <h2 id="angular-version">Angular version</h2>
 <ul>
-<li>2.0.0-alpha.46</li>
+<li>2.0.0-alpha.53</li>
 </ul>
 <h2 id="how-to">How To ?</h2>
 <p>First we have to include the angular2 router bundle to our application.
@@ -378,7 +378,7 @@ The router component is not included by default in the angular2 bundle.</p>
 </code></pre>
 <p>Now we add angular router provider to our global providers</p>
 <pre><code class="lang-javascript"><span class="token comment" spellcheck="true">// bootstrap.ts compiled (using typescript) to bootstrap.js</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span>bootstrap<span class="token punctuation">}</span> from <span class="token string">&apos;angular2/angular2&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>bootstrap<span class="token punctuation">}</span> from <span class="token string">&apos;angular2/platform/browser&apos;</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span>App<span class="token punctuation">}</span> from <span class="token string">&apos;./app&apos;</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span>ROUTER_PROVIDERS<span class="token punctuation">}</span> from <span class="token string">&apos;angular2/router&apos;</span><span class="token punctuation">;</span>
 
@@ -386,15 +386,13 @@ The router component is not included by default in the angular2 bundle.</p>
 </code></pre>
 <p>Next, let&apos;s define some routes in our root component <code>App</code>.</p>
 <pre><code class="lang-javascript"><span class="token comment" spellcheck="true">// app.ts compiled (using typescript) to app.js</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span>Component<span class="token punctuation">,</span> View<span class="token punctuation">}</span> from <span class="token string">&apos;angular2/angular2&apos;</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> RouteConfig<span class="token punctuation">,</span> ROUTER_DIRECTIVES <span class="token punctuation">}</span> from <span class="token string">&apos;angular2/router&apos;</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> Home <span class="token punctuation">}</span> from <span class="token string">&apos;./home&apos;</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> About <span class="token punctuation">}</span> from <span class="token string">&apos;./about&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>Component<span class="token punctuation">}</span> from <span class="token string">&apos;angular2/core&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>RouteConfig<span class="token punctuation">,</span> ROUTER_DIRECTIVES<span class="token punctuation">}</span> from <span class="token string">&apos;angular2/router&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>Home<span class="token punctuation">}</span> from <span class="token string">&apos;./home&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>About<span class="token punctuation">}</span> from <span class="token string">&apos;./about&apos;</span><span class="token punctuation">;</span>
 
 @<span class="token function">Component</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-  selector<span class="token punctuation">:</span> <span class="token string">&apos;app&apos;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-@<span class="token function">View</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  selector<span class="token punctuation">:</span> <span class="token string">&apos;app&apos;</span><span class="token punctuation">,</span>
   directives<span class="token punctuation">:</span> <span class="token punctuation">[</span>ROUTER_DIRECTIVES<span class="token punctuation">]</span>
   template<span class="token punctuation">:</span> `
     <span class="token operator">&lt;</span>h1<span class="token operator">&gt;</span>Hello world<span class="token operator">&lt;</span><span class="token operator">/</span>h1<span class="token operator">&gt;</span>
@@ -403,7 +401,7 @@ The router component is not included by default in the angular2 bundle.</p>
   `
 <span class="token punctuation">}</span><span class="token punctuation">)</span>
 @<span class="token function">RouteConfig</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
-    <span class="token punctuation">{</span> path<span class="token punctuation">:</span> <span class="token string">&apos;/&apos;</span><span class="token punctuation">,</span> redirectTo<span class="token punctuation">:</span> <span class="token string">&apos;/home&apos;</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span> path<span class="token punctuation">:</span> <span class="token string">&apos;/&apos;</span><span class="token punctuation">,</span> redirectTo<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&apos;Home&apos;</span><span class="token punctuation">]</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
     <span class="token punctuation">{</span> path<span class="token punctuation">:</span> <span class="token string">&apos;/home&apos;</span><span class="token punctuation">,</span> as<span class="token punctuation">:</span> <span class="token string">&apos;Home&apos;</span><span class="token punctuation">,</span> component<span class="token punctuation">:</span> Home <span class="token punctuation">}</span><span class="token punctuation">,</span>
     <span class="token punctuation">{</span> path<span class="token punctuation">:</span> <span class="token string">&apos;/about&apos;</span><span class="token punctuation">,</span> as<span class="token punctuation">:</span> <span class="token string">&apos;About&apos;</span><span class="token punctuation">,</span> component<span class="token punctuation">:</span> About <span class="token punctuation">}</span>
 <span class="token punctuation">]</span><span class="token punctuation">)</span>
@@ -419,18 +417,16 @@ in the special directive router-outlet that should be appended
 somewhere in the component template.</p>
 <p>Now let&apos;s create the home and app components (our &quot;pages&quot;):</p>
 <pre><code class="lang-javascript"><span class="token comment" spellcheck="true">// home.ts</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span>Component<span class="token punctuation">,</span> View<span class="token punctuation">}</span> from <span class="token string">&apos;angular2/angular2&apos;</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> ROUTER_DIRECTIVES <span class="token punctuation">}</span> from <span class="token string">&apos;angular2/router&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>Component<span class="token punctuation">}</span> from <span class="token string">&apos;angular2/cpre&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>ROUTER_DIRECTIVES<span class="token punctuation">}</span> from <span class="token string">&apos;angular2/router&apos;</span><span class="token punctuation">;</span>
 
 @<span class="token function">Component</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-  selector<span class="token punctuation">:</span> <span class="token string">&apos;home&apos;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-@<span class="token function">View</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  selector<span class="token punctuation">:</span> <span class="token string">&apos;home&apos;</span><span class="token punctuation">,</span>
   directives<span class="token punctuation">:</span> <span class="token punctuation">[</span>ROUTER_DIRECTIVES<span class="token punctuation">]</span>
   template<span class="token punctuation">:</span> `
     <span class="token operator">&lt;</span>h2<span class="token operator">&gt;</span>Home<span class="token operator">&lt;</span><span class="token operator">/</span>h2<span class="token operator">&gt;</span>
 
-    <span class="token operator">&lt;</span>a <span class="token punctuation">[</span>router<span class="token operator">-</span>link<span class="token punctuation">]</span><span class="token operator">=</span><span class="token string">&quot;[&apos;../About&apos;]&quot;</span><span class="token operator">&gt;</span>Go to about<span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>a <span class="token punctuation">[</span>routerLink<span class="token punctuation">]</span><span class="token operator">=</span><span class="token string">&quot;[&apos;../About&apos;]&quot;</span><span class="token operator">&gt;</span>Go to about<span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">&gt;</span>
   `
 <span class="token punctuation">}</span><span class="token punctuation">)</span>
 <span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">Home</span> <span class="token punctuation">{</span>
@@ -438,18 +434,16 @@ somewhere in the component template.</p>
 <span class="token punctuation">}</span>
 </code></pre>
 <pre><code class="lang-javascript"><span class="token comment" spellcheck="true">// about.ts</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span>Component<span class="token punctuation">,</span> View<span class="token punctuation">}</span> from <span class="token string">&apos;angular2/angular2&apos;</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> ROUTER_DIRECTIVES <span class="token punctuation">}</span> from <span class="token string">&apos;angular2/router&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>Component<span class="token punctuation">}</span> from <span class="token string">&apos;angular2/core&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>ROUTER_DIRECTIVES<span class="token punctuation">}</span> from <span class="token string">&apos;angular2/router&apos;</span><span class="token punctuation">;</span>
 
 @<span class="token function">Component</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-  selector<span class="token punctuation">:</span> <span class="token string">&apos;about&apos;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-@<span class="token function">View</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  selector<span class="token punctuation">:</span> <span class="token string">&apos;about&apos;</span><span class="token punctuation">,</span>
   directives<span class="token punctuation">:</span> <span class="token punctuation">[</span>ROUTER_DIRECTIVES<span class="token punctuation">]</span>
   template<span class="token punctuation">:</span> `
     <span class="token operator">&lt;</span>h2<span class="token operator">&gt;</span>About<span class="token operator">&lt;</span><span class="token operator">/</span>h2<span class="token operator">&gt;</span>
 
-    <span class="token operator">&lt;</span>a <span class="token punctuation">[</span>router<span class="token operator">-</span>link<span class="token punctuation">]</span><span class="token operator">=</span><span class="token string">&quot;[&apos;../Home&apos;]&quot;</span><span class="token operator">&gt;</span>Go to home<span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>a <span class="token punctuation">[</span>routerLink<span class="token punctuation">]</span><span class="token operator">=</span><span class="token string">&quot;[&apos;../Home&apos;]&quot;</span><span class="token operator">&gt;</span>Go to home<span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">&gt;</span>
   `
 <span class="token punctuation">}</span><span class="token punctuation">)</span>
 <span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">About</span> <span class="token punctuation">{</span>
@@ -487,6 +481,10 @@ to navigate between routes.</p>
 
     
     <script src="gitbook/plugins/gitbook-plugin-github/plugin.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
     
 
 <script>
