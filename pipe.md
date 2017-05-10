@@ -22,11 +22,19 @@ import {Pipe} from 'angular2/core'
   name: 'truncate'
 })
 export class TruncatePipe {
-  transform(value: string, args: string[]) : string {
-    let limit = args.length > 0 ? parseInt(args[0], 10) : 10;
-    let trail = args.length > 1 ? args[1] : '...';
+  private static DEFAULT_LENGTH = 10;
+  private static DEFAULT_TRAIL = '...';
 
-    return value.length > limit ? value.substring(0, limit) + trail : value;
+  transform(value: string, len?: number, trail?: string) : string {
+    if (!len) {
+      len = TruncatePipe.DEFAULT_LENGTH;
+    }
+
+    if (!trail) {
+      trail = TruncatePipe.DEFAULT_TRAIL;
+    }
+
+    return value.length > len ? value.substring(0, len) + trail : value;
   }
 }
 ```
